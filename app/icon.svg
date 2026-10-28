@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="2" y="6" width="54" height="54" rx="14" fill="#1c1a17"/>
+  <text x="29" y="43" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="27" font-weight="700" fill="#f6f3ec">pf</text>
+  <circle cx="54" cy="10" r="8" fill="#e8590c" stroke="#f6f3ec" stroke-width="3"/>
+</svg>
