@@ -11,6 +11,8 @@ export function llmsIndex() {
 
 Founded by ${site.founder}. Official site: ${site.url}. YouTube: ${site.youtube}.
 
+How we build: ${site.buildTagline} The lab uses a heavy LLM-based workflow to design, write and test its apps; people decide what gets built, review the work and sign off on every release.
+
 ## Products
 
 ${products.map((p) => `- [${p.name}](${abs(`/products/${p.slug}`)}): ${p.summary} Platforms: ${p.platforms.join(", ")}. App: ${p.url}`).join("\n")}

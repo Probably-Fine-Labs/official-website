@@ -67,6 +67,14 @@ export default function About() {
             </div>
           ))}
         </div>
+        <div className="how-we-build">
+          <div className="label mono">{"// how we build"}</div>
+          <h3>{site.buildTagline}</h3>
+          <p>
+            We use a heavy LLM-based workflow to design, write and test our apps — it&apos;s how a small lab ships this
+            much. But people decide what gets built, review the work and sign off on every release.
+          </p>
+        </div>
       </section>
 
       <section id="people">

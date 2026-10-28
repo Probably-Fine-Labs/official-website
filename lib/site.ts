@@ -12,6 +12,7 @@ export const site = {
   youtube: "https://www.youtube.com/@ProbablyFineLabs",
   location: "Kerala, India",
   founder: "Anandhu Remanan",
+  buildTagline: "Human first, with help of AI.",
   keywords: [
     "Probably Fine Labs",
     "pflabs",

@@ -192,6 +192,15 @@ a.card:hover { border-color: var(--ink); transform: translateY(-2px); }
 .pr h4 { font-size: 18px; margin: 8px 0 6px; font-weight: 700; }
 .pr p { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
+/* ---------- How we build ---------- */
+.how-we-build {
+  margin-top: 40px; padding: 28px; border: 1px dashed var(--line); border-radius: 16px;
+  background: var(--surface);
+}
+.how-we-build .label { margin-bottom: 8px; }
+.how-we-build h3 { font-size: 26px; letter-spacing: -0.02em; font-weight: 700; margin-bottom: 10px; }
+.how-we-build p { font-size: 16px; line-height: 1.7; color: var(--muted); max-width: 720px; }
+
 /* ---------- People ---------- */
 .people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .person { align-items: flex-start; }
