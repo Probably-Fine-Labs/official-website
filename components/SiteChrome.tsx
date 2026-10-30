@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import MobileMenu from "./MobileMenu";
+import LogoMark from "./LogoMark";
 import { site } from "@/lib/site";
 import { ArrowRight, ArrowUpRight } from "./Icons";
 
@@ -13,8 +14,8 @@ const links = [
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label={`${site.name} home`}>
-      <span className="mark mono">pf</span>
-      {site.name}
+      <LogoMark className="logo-mark" />
+      <span>{site.name}</span>
     </Link>
   );
 }
@@ -55,8 +56,11 @@ export function Nav() {
 export function Footer() {
   return (
     <div className="wrap">
-      <footer className="footer mono">
-        <span>© 2026 {site.name}</span>
+      <footer className="footer">
+        <div className="footer-brand">
+          <Logo />
+          <span>© 2026 {site.name}. {site.buildTagline}</span>
+        </div>
         <nav aria-label="Footer">
           <Link href="/products">Products</Link>
           <Link href="/about">About</Link>

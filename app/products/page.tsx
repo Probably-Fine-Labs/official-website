@@ -16,7 +16,7 @@ export default function Products() {
     <div className="wrap">
       <JsonLd data={productListLd} />
       <section className="page-head">
-        <div className="label mono">{"// products"}</div>
+        <div className="label mono">{"products"}</div>
         <h1 className="page">
           Tools we&apos;ve <em>shipped.</em>
         </h1>

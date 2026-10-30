@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Orbit, { ImageSatellite } from "@/components/Orbit";
 import ProductCard from "@/components/ProductCard";
 import { CtaBand } from "@/components/SiteChrome";
 import { principles, products, site } from "@/lib/site";
@@ -7,40 +8,50 @@ import { ArrowRight, PlayIcon } from "@/components/Icons";
 export default function Home() {
   return (
     <div className="wrap">
-      <section className="hero">
-        <div className="status mono">
-          <span className="dot" />
-          all systems: probably fine
+      <section className="hero hero-grid">
+        <div className="hero-copy">
+          <div className="status mono">
+            <span className="dot" />
+            all systems: probably fine
+          </div>
+          <h1 className="display">
+            Small, sharp tools
+            <br />
+            that are <em>probably fine.</em>
+          </h1>
+          <p className="lede">{site.description}</p>
+          <div className="ctas">
+            <Link className="btn primary" href="/products">
+              Explore products <ArrowRight />
+            </Link>
+            <a className="btn ghost" href={site.youtube} target="_blank" rel="noopener noreferrer">
+              <PlayIcon /> Watch on YouTube
+            </a>
+          </div>
+          <div className="meta mono">
+            <span>
+              <b>{products.length}</b> products shipped
+            </span>
+            <span>
+              <b>Windows · Web · Android · CLI</b>
+            </span>
+            <span>
+              <b>Free</b> to use, open source where it counts
+            </span>
+          </div>
         </div>
-        <h1 className="display">
-          Small, sharp tools
-          <br />
-          that are <em>probably fine.</em>
-        </h1>
-        <p className="lede">{site.description}</p>
-        <div className="ctas">
-          <Link className="btn primary" href="/products">
-            Explore products <ArrowRight />
-          </Link>
-          <a className="btn ghost" href={site.youtube} target="_blank" rel="noopener noreferrer">
-            <PlayIcon /> Watch on YouTube
-          </a>
-        </div>
-        <div className="meta mono">
-          <span>
-            <b>{products.length}</b> products shipped
-          </span>
-          <span>
-            <b>Windows · Web · Android · CLI</b>
-          </span>
-          <span>
-            <b>Free</b> to use, open source where it counts
-          </span>
-        </div>
+        <Orbit
+          className="hero-visual"
+          satellites={products.map((p) => ({
+            key: p.slug,
+            label: p.name,
+            node: <ImageSatellite id={p.slug} href={p.logo} />,
+          }))}
+        />
       </section>
 
       <section id="products">
-        <div className="label mono">{"// products"}</div>
+        <div className="label mono">{"products"}</div>
         <h2>Things we&apos;ve shipped</h2>
         <div className="grid3">
           {products.map((p) => (
@@ -52,7 +63,7 @@ export default function Home() {
       <section id="about">
         <div className="split">
           <div className="prose">
-            <div className="label mono">{"// why we exist"}</div>
+            <div className="label mono">{"why we exist"}</div>
             <h2>
               Software should solve the problem,
               <br />
@@ -60,12 +71,11 @@ export default function Home() {
             </h2>
             <p>
               Probably Fine Labs builds <b>focused tools for everyday annoyances</b> — a slow PC, a file stuck on the
-              wrong device, a website you need to understand. Each one does its job without accounts, trackers or
+              wrong device, a website you need to understand. Each one does its job without clutter, trackers or
               upsells.
             </p>
             <p>
-              The lab brings these products under one roof so they can share what works, grow together and keep
-              getting better.
+              Every product is maintained, improved and shaped by the people who use it, long after launch.
             </p>
             <Link className="btn ghost sm" href="/about">
               More about the lab <ArrowRight />

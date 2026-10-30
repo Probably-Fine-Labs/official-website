@@ -14,7 +14,7 @@ export default function Contact() {
   return (
     <div className="wrap">
       <section className="page-head">
-        <div className="label mono">{"// contact"}</div>
+        <div className="label mono">{"contact"}</div>
         <h1 className="page">
           Say hello. <em>We read everything.</em>
         </h1>

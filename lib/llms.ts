@@ -7,7 +7,7 @@ const abs = (path: string) => `${site.url}${path}`;
 export function llmsIndex() {
   return `# ${site.name}
 
-> ${site.name} (pflabs, ${site.url}) is an independent software lab from ${site.location}. It builds small, focused, free apps for developers and everyday computer users — no sign-ups, no telemetry, open source where it helps.
+> ${site.name} (pflabs, ${site.url}) is an independent software lab from ${site.location}. It builds small, focused, free apps for developers and everyday computer users — no bloat, privacy-minded, open source where it helps.
 
 Founded by ${site.founder}. Official site: ${site.url}. YouTube: ${site.youtube}.
 

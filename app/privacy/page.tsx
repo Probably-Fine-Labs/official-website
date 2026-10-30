@@ -12,7 +12,7 @@ export default function Privacy() {
   return (
     <div className="wrap">
       <section className="page-head prose" style={{ maxWidth: 720 }}>
-        <div className="label mono">{"// privacy"}</div>
+        <div className="label mono">{"privacy"}</div>
         <h1 className="page">Privacy, in plain words.</h1>
         <p>
           This website doesn&apos;t use cookies, analytics or trackers. The only thing stored in your browser is your

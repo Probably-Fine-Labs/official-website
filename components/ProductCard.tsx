@@ -30,7 +30,7 @@ export default function ProductCard({ p }: { p: Product }) {
 export function SoonCard() {
   return (
     <div className="card soon">
-      <span className="label mono">{"// in the lab"}</span>
+      <span className="label mono">{"in the lab"}</span>
       <h3>
         Something new <span className="cursor" />
       </h3>

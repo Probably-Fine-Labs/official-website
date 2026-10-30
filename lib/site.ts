@@ -5,7 +5,7 @@ export const site = {
   shortName: "pflabs",
   tagline: "Small, sharp tools that are probably fine.",
   description:
-    "An independent software lab building focused apps for developers and everyday computer people. No sign-ups, no bloat, no drama.",
+    "An independent software lab building focused apps for developers and everyday computer people. No bloat, no drama.",
   url: "https://pflabs.in",
   // TODO: confirm this inbox exists (or change it) before going live.
   email: "hello@pflabs.in",
@@ -74,8 +74,7 @@ export const products: Product[] = [
   {
     slug: "filedrop",
     name: "FileDrop",
-    logo: "/products/filedrop.png",
-    logoBg: "#eef0f2",
+    logo: "/products/filedrop-icon.png",
     tagline: "Transfer files instantly.",
     summary:
       "Move files between devices with a six-digit code. No account, nothing to install on the web, files deleted after transfer.",
@@ -140,7 +139,7 @@ export const people: Person[] = [
 ];
 
 export const principles = [
-  { title: "No sign-up walls", body: "If it can work without an account, it does." },
+  { title: "Respect your time", body: "Fast to open, quick to be useful, no dark patterns." },
   { title: "Do one thing well", body: "Focused tools over feature soup." },
-  { title: "Your data stays yours", body: "Local-first, no telemetry, privacy by default." },
+  { title: "Privacy by default", body: "We collect only what a feature needs, nothing more." },
 ];

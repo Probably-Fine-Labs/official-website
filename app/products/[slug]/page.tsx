@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { GitHubIcon, ArrowUpRight } from "@/components/Icons";
 import JsonLd, { productLd } from "@/components/JsonLd";
+import LogoMark from "@/components/LogoMark";
 import ProductLogo from "@/components/ProductLogo";
 import { pageMeta } from "@/lib/seo";
 import { CtaBand } from "@/components/SiteChrome";
@@ -38,6 +39,7 @@ function ProductSkeleton() {
   );
   return (
     <section className="page-head" aria-busy="true" aria-label="Loading product">
+      <LogoMark className="spin" style={{ width: 28, height: 28, color: "var(--muted)", marginBottom: 20 }} />
       {bar(140, 14)}
       {bar(64, 64, 28)}
       {bar(620, 52, 24)}
@@ -88,7 +90,7 @@ async function ProductDetails({ params }: Pick<PageProps<"/products/[slug]">, "p
       </section>
 
       <section>
-        <div className="label mono">{"// features"}</div>
+        <div className="label mono">{"features"}</div>
         <h2>What it does</h2>
         <div className="feature-grid">
           {p.features.map((f) => (
