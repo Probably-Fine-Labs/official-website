@@ -9,7 +9,7 @@ export function llmsIndex() {
 
 > ${site.name} (pflabs, ${site.url}) is an independent software lab from ${site.location}. It builds small, focused, free apps for developers and everyday computer users — no bloat, privacy-minded, open source where it helps.
 
-Founded by ${site.founder}. Official site: ${site.url}. YouTube: ${site.youtube}.
+Founded by ${site.founder}. Official site: ${site.url}. YouTube: ${site.youtube}. Open source on GitHub: ${site.github}.
 
 How we build: ${site.buildTagline} The lab uses a heavy LLM-based workflow to design, write and test its apps; people decide what gets built, review the work and sign off on every release.
 

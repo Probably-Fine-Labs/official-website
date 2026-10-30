@@ -73,6 +73,9 @@ export function Footer() {
           <a href={site.youtube} target="_blank" rel="noopener noreferrer">
             YouTube
           </a>
+          <a href={site.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
           <Link href="/privacy">Privacy</Link>
         </nav>
       </footer>

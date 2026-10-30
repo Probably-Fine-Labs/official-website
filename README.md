@@ -4,6 +4,7 @@ Website for **[Probably Fine Labs](https://pflabs.in)**: an independent software
 
 - Live: **https://pflabs.in**
 - YouTube: [@ProbablyFineLabs](https://www.youtube.com/@ProbablyFineLabs)
+- GitHub: [Probably-Fine-Labs](https://github.com/Probably-Fine-Labs) (this repo is [official-website](https://github.com/Probably-Fine-Labs/official-website))
 
 | Product | What it is | Platforms |
 | --- | --- | --- |

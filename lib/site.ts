@@ -10,6 +10,8 @@ export const site = {
   // TODO: confirm this inbox exists (or change it) before going live.
   email: "hello@pflabs.in",
   youtube: "https://www.youtube.com/@ProbablyFineLabs",
+  // Open-source home for the lab's public code.
+  github: "https://github.com/Probably-Fine-Labs",
   location: "Kerala, India",
   founder: "Anandhu Remanan",
   buildTagline: "Human first, with help of AI.",

@@ -38,7 +38,7 @@ export const organizationLd = {
         addressRegion: "Kerala",
         addressCountry: "IN",
       },
-      sameAs: [site.youtube],
+      sameAs: [site.youtube, site.github],
     },
     {
       "@type": "WebSite",

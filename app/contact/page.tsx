@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MailIcon, YouTubeIcon } from "@/components/Icons";
+import { GitHubIcon, MailIcon, YouTubeIcon } from "@/components/Icons";
 import { pageMeta } from "@/lib/seo";
 import { products, site } from "@/lib/site";
 import ContactForm from "./ContactForm";
@@ -66,6 +66,20 @@ export default function Contact() {
               <span>
                 <strong>YouTube</strong>
                 <small className="mono">@ProbablyFineLabs</small>
+              </span>
+            </a>
+            <a
+              className="channel"
+              href={site.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="ci">
+                <GitHubIcon />
+              </span>
+              <span>
+                <strong>GitHub</strong>
+                <small className="mono">issues &amp; pull requests welcome</small>
               </span>
             </a>
             <div className="panel mono" style={{ lineHeight: 1.8 }}>
