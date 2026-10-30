@@ -1459,7 +1459,7 @@ a.card:hover,
 a.channel:hover,
 .feature:hover,
 .person:hover {
-  transform: translateY(-4px) rotate(-0.6deg);
+  transform: translateY(-4px); /* no tilt: rotated text renders soft */
   box-shadow: var(--lift-shadow);
   border-color: var(--ink);
 }
@@ -1477,7 +1477,6 @@ a.channel:hover,
   background-color: var(--paper);
   box-shadow: var(--card-shadow);
   border: 0;
-  transform: rotate(1deg);
   padding: 22px 26px 22px 56px;
   line-height: 27px;
   background-image: repeating-linear-gradient(
@@ -1487,8 +1486,7 @@ a.channel:hover,
   background-position: 0 22px;
 }
 .panel.notebook .row {
-  min-height: 27px;
-  align-items: center;
+  align-items: flex-start; /* every text line sits on a ruled line, even when wrapped */
 }
 .panel.notebook .rings {
   position: absolute;
@@ -1512,7 +1510,6 @@ a.channel:hover,
   border: 0;
   border-radius: 4px;
   box-shadow: var(--card-shadow);
-  transform: rotate(-0.6deg);
   max-width: 760px;
   padding: 36px 34px 30px;
 }
@@ -1631,3 +1628,17 @@ a.channel:hover,
 
 /* Dark mode: outline app icons so black logo tiles (e.g. FileDrop) don't vanish into black cards */
 :root[data-theme="dark"] .logo-tile { box-shadow: 0 0 0 1px var(--line); }
+
+/* Mobile: the generic `.wrap { padding: 0 16px }` also hit the nav and zeroed its
+   vertical padding; restore it and give the hero some air below the bar. */
+@media (max-width: 700px) {
+  .nav.wrap { padding-top: 12px; padding-bottom: 12px; }
+  .desk-wrap, .board-wrap { padding-top: 14px; }
+}
+
+/* Mobile: page headers are plain text, not a card (items are hidden there anyway) */
+@media (max-width: 700px) {
+  .board-head { background: none; border: 0; border-radius: 0; min-height: 0; overflow: visible; }
+  .board-head .board-copy { padding: 28px 0 8px; }
+  .board-head .board-copy::before { display: none; }
+}
