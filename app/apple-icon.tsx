@@ -8,22 +8,29 @@ export const contentType = "image/png";
 export default function AppleIcon() {
   const c = ring.circle;
   return new ImageResponse(
-    (
-      <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "#000" }}>
-        <svg width="112" height="112" viewBox={ring.viewBox}>
-          <circle
-            cx={c.cx}
-            cy={c.cy}
-            r={c.r}
-            fill="none"
-            stroke="#fff"
-            strokeWidth={c.strokeWidth}
-            strokeDasharray={c.dasharray}
-            transform={`rotate(${c.rotate} 100 100)`}
-          />
-        </svg>
-      </div>
-    ),
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#000",
+      }}
+    >
+      <svg width="112" height="112" viewBox={ring.viewBox}>
+        <circle
+          cx={c.cx}
+          cy={c.cy}
+          r={c.r}
+          fill="none"
+          stroke="#fff"
+          strokeWidth={c.strokeWidth}
+          strokeDasharray={c.dasharray}
+          transform={`rotate(${c.rotate} 100 100)`}
+        />
+      </svg>
+    </div>,
     size,
   );
 }

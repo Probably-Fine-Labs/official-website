@@ -26,15 +26,3 @@ export default function ProductCard({ p }: { p: Product }) {
     </Link>
   );
 }
-
-export function SoonCard() {
-  return (
-    <div className="card soon">
-      <span className="label mono">{"in the lab"}</span>
-      <h3>
-        Something new <span className="cursor" />
-      </h3>
-      <p>New tools are brewing. Follow along on YouTube to see them first.</p>
-    </div>
-  );
-}

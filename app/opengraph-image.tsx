@@ -20,44 +20,61 @@ const [inter400, inter600] = await Promise.all([
 export default function OpengraphImage() {
   const c = ring.circle;
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#000",
-          color: "#fff",
-          fontFamily: "Inter",
-          position: "relative",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 30 }}>
-          <svg width="100" height="100" viewBox={ring.viewBox}>
-            <circle
-              cx={c.cx}
-              cy={c.cy}
-              r={c.r}
-              fill="none"
-              stroke="#fff"
-              strokeWidth={c.strokeWidth}
-              strokeDasharray={c.dasharray}
-              transform={`rotate(${c.rotate} 100 100)`}
-            />
-          </svg>
-          <div style={{ fontSize: 70, fontWeight: 600, letterSpacing: -2.8 }}>{site.name}</div>
-        </div>
-        <div style={{ marginTop: 34, fontSize: 30, fontWeight: 400, color: "#8f8f8f", letterSpacing: -0.6 }}>
-          {site.tagline}
-        </div>
-        <div style={{ position: "absolute", bottom: 48, fontSize: 24, fontWeight: 600, color: "#6b6b6b", letterSpacing: -0.4 }}>
-          pflabs.in
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#000",
+        color: "#fff",
+        fontFamily: "Inter",
+        position: "relative",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 30 }}>
+        <svg width="100" height="100" viewBox={ring.viewBox}>
+          <circle
+            cx={c.cx}
+            cy={c.cy}
+            r={c.r}
+            fill="none"
+            stroke="#fff"
+            strokeWidth={c.strokeWidth}
+            strokeDasharray={c.dasharray}
+            transform={`rotate(${c.rotate} 100 100)`}
+          />
+        </svg>
+        <div style={{ fontSize: 70, fontWeight: 600, letterSpacing: -2.8 }}>
+          {site.name}
         </div>
       </div>
-    ),
+      <div
+        style={{
+          marginTop: 34,
+          fontSize: 30,
+          fontWeight: 400,
+          color: "#8f8f8f",
+          letterSpacing: -0.6,
+        }}
+      >
+        {site.tagline}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: 48,
+          fontSize: 24,
+          fontWeight: 600,
+          color: "#6b6b6b",
+          letterSpacing: -0.4,
+        }}
+      >
+        pflabs.in
+      </div>
+    </div>,
     {
       ...size,
       fonts: [

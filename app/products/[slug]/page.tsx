@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { GitHubIcon, ArrowUpRight } from "@/components/Icons";
 import JsonLd, { productLd } from "@/components/JsonLd";
 import LogoMark from "@/components/LogoMark";
-import ProductLogo from "@/components/ProductLogo";
+import { AppTile, PageBoard, Receipt } from "@/components/Desk";
 import { pageMeta } from "@/lib/seo";
 import { CtaBand } from "@/components/SiteChrome";
 import { products } from "@/lib/site";
@@ -14,10 +14,14 @@ export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/products/[slug]">): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps<"/products/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const p = products.find((x) => x.slug === slug);
-  return p ? pageMeta(`${p.name} — ${p.tagline}`, p.summary, `/products/${p.slug}`) : {};
+  return p
+    ? pageMeta(`${p.name} — ${p.tagline}`, p.summary, `/products/${p.slug}`)
+    : {};
 }
 
 // The shell is shared by every product URL, so anything that reads the slug
@@ -35,21 +39,48 @@ export default function ProductPage({ params }: PageProps<"/products/[slug]">) {
 
 function ProductSkeleton() {
   const bar = (w: number | string, h: number, mt = 0) => (
-    <div style={{ width: w, maxWidth: "100%", height: h, marginTop: mt, borderRadius: 10, background: "var(--line)", opacity: 0.6 }} />
+    <div
+      style={{
+        width: w,
+        maxWidth: "100%",
+        height: h,
+        marginTop: mt,
+        borderRadius: 10,
+        background: "var(--line)",
+        opacity: 0.6,
+      }}
+    />
   );
   return (
-    <section className="page-head" aria-busy="true" aria-label="Loading product">
-      <LogoMark className="spin" style={{ width: 28, height: 28, color: "var(--muted)", marginBottom: 20 }} />
-      {bar(140, 14)}
-      {bar(64, 64, 28)}
-      {bar(620, 52, 24)}
-      {bar(480, 20, 20)}
-      {bar(300, 46, 28)}
+    <section
+      className="board-wrap"
+      aria-busy="true"
+      aria-label="Loading product"
+    >
+      <div className="board board-head">
+        <div className="board-copy" style={{ width: "100%" }}>
+          <LogoMark
+            className="spin"
+            style={{
+              width: 28,
+              height: 28,
+              color: "var(--muted)",
+              marginBottom: 20,
+            }}
+          />
+          {bar(160, 14)}
+          {bar(520, 52, 18)}
+          {bar(420, 20, 18)}
+          {bar(300, 46, 26)}
+        </div>
+      </div>
     </section>
   );
 }
 
-async function ProductDetails({ params }: Pick<PageProps<"/products/[slug]">, "params">) {
+async function ProductDetails({
+  params,
+}: Pick<PageProps<"/products/[slug]">, "params">) {
   const { slug } = await params;
   const p = products.find((x) => x.slug === slug);
   if (!p) notFound();
@@ -57,37 +88,58 @@ async function ProductDetails({ params }: Pick<PageProps<"/products/[slug]">, "p
   return (
     <>
       <JsonLd data={productLd(p)} />
-      <section className="page-head">
-        <div className="crumbs mono">
-          <Link href="/products">products</Link> / {p.slug}
-        </div>
-        <div style={{ display: "flex", gap: 18, alignItems: "center", marginTop: 28, flexWrap: "wrap" }}>
-          <ProductLogo p={p} size={64} />
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-            {p.platforms.map((pl) => (
-              <span key={pl} className="tag mono">
-                {pl}
-              </span>
-            ))}
-            <span className="tag mono">{p.status}</span>
-          </div>
-        </div>
-        <h1 className="page">
-          {p.name}. <em>{p.tagline}</em>
-        </h1>
-        <p className="lede">{p.summary}</p>
-        <div className="ctas" style={{ marginTop: 28 }}>
-          <a className="btn primary" href={p.url} target="_blank" rel="noopener noreferrer">
-            Open {p.name} <ArrowUpRight />
-          </a>
-          {p.links.map((l) => (
-            <a key={l.href} className="btn ghost" href={l.href} target="_blank" rel="noopener noreferrer">
-              {l.label.startsWith("Source") && <GitHubIcon />}
-              {l.label}
+      <PageBoard
+        label={
+          <>
+            <Link href="/products">products</Link> / {p.slug}
+          </>
+        }
+        title={
+          <>
+            {p.name}. <em>{p.tagline}</em>
+          </>
+        }
+        lede={p.summary}
+        actions={
+          <>
+            <a
+              className="btn primary"
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open {p.name} <ArrowUpRight />
             </a>
-          ))}
-        </div>
-      </section>
+            {p.links.map((l) => (
+              <a
+                key={l.href}
+                className="btn ghost"
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {l.label.startsWith("Source") && <GitHubIcon />}
+                {l.label}
+              </a>
+            ))}
+          </>
+        }
+      >
+        <AppTile p={p} at={{ right: "24%", top: "12%", r: -4 }} />
+        <Receipt
+          at={{ right: "5%", top: "22%", r: 3 }}
+          title={p.name}
+          rows={[
+            [
+              "platforms",
+              p.platforms.filter((x) => x !== "Open source").join(", "),
+            ],
+            ["status", p.status],
+            ["source", p.source ? "open" : "—"],
+          ]}
+          total={["price", "free"]}
+        />
+      </PageBoard>
 
       <section>
         <div className="label mono">{"features"}</div>

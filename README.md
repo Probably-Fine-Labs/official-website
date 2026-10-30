@@ -73,6 +73,11 @@ components/
   ThemeToggle.tsx           Light/dark switch + no-flash script
   MobileMenu.tsx            Mobile nav menu
   LogoMark.tsx              Brand ring logo (also used as the loading spinner)
+  LabDesk.tsx               Home hero: headline on a "lab desk" of product teasers
+  Desk.tsx                  Shared desk language: PageBoard, Note, Polaroid, AppTile,
+                            Receipt, Postcard, Redacted, Scribble
+  DraggableDesk.tsx         Makes desk items draggable (text stays in front)
+  LogoLink.tsx              Logo link; scrolls to top when already on the home page
   Avatar.tsx                Generated cartoon faces for people
   ProductCard.tsx  ProductLogo.tsx  Icons.tsx  JsonLd.tsx
 lib/
@@ -81,12 +86,14 @@ lib/
   llms.ts                   Builds llms.txt / llms-full.txt
 assets/fonts/               Inter 400/600 TTFs cut from the brand font, for generated images
 public/brand/               Original brand-kit logo files
+public/people/              Open Peeps illustrations (CC0) used in the hero polaroid
 ```
 
 ## How things work
 
 - **Theme:** an inline script in `<head>` sets `data-theme` on `<html>` before the page paints. It uses the saved choice from `localStorage`, otherwise the system setting, so the page never flashes the wrong theme. Colors are CSS variables in `globals.css`. The toggle's active state is pure CSS.
 - **Icons and arrows:** draw every arrow and symbol as SVG (`components/Icons.tsx`). Don't type `→ ↗ ▶`, because Apple devices may render them as emoji.
+- **Lab desk language:** every page header is a dotted "board" (`PageBoard`) with a few paper items on it (notes, polaroid, app tiles, receipt, postcard). Items can be dragged; the copy always stays in front. Content cards are paper "sheets" that get picked up on hover, and each section gets at most one handwritten `Scribble` (Caveat font). New pages should reuse these instead of inventing new styles.
 - **Avatars:** `Avatar.tsx` draws a deliberately wonky face, seeded from the person's name. The same name always gets the same face.
 - **Contact form:** there's no backend yet. The form opens the visitor's email app with a pre-filled message. To use a form service or server action instead, replace `handleSubmit` in `app/contact/ContactForm.tsx`.
 - **Product pages:** content that depends on the URL sits inside `<Suspense>`, as Next.js 16 instant navigation requires. All known products are still fully prerendered via `generateStaticParams`.

@@ -5,7 +5,11 @@ import { products, site } from "@/lib/site";
 const updated = "2026-10-28";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const page = (path: string, priority: number, changeFrequency: "weekly" | "monthly" | "yearly" = "monthly") => ({
+  const page = (
+    path: string,
+    priority: number,
+    changeFrequency: "weekly" | "monthly" | "yearly" = "monthly",
+  ) => ({
     url: `${site.url}${path}`,
     lastModified: updated,
     changeFrequency,

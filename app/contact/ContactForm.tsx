@@ -13,13 +13,20 @@ const topics = [
 
 // No backend yet: the form builds a pre-filled email in the visitor's mail app.
 // Swap handleSubmit for a server action or form service later without touching the UI.
-export default function ContactForm({ email, products }: { email: string; products: string[] }) {
+export default function ContactForm({
+  email,
+  products,
+}: {
+  email: string;
+  products: string[];
+}) {
   const topicRef = useRef<HTMLSelectElement>(null);
 
   // Preselect a topic from ?topic=… (e.g. the "Join the lab" link on About).
   useEffect(() => {
     const t = new URLSearchParams(window.location.search).get("topic");
-    if (t && topicRef.current && topics.some((x) => x.value === t)) topicRef.current.value = t;
+    if (t && topicRef.current && topics.some((x) => x.value === t))
+      topicRef.current.value = t;
   }, []);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -37,13 +44,32 @@ export default function ContactForm({ email, products }: { email: string; produc
     <form className="form" onSubmit={handleSubmit}>
       <label>
         Your name
-        <input name="name" required autoComplete="name" placeholder="Ada Lovelace" />
+        <input
+          name="name"
+          required
+          autoComplete="name"
+          placeholder="Ada Lovelace"
+        />
       </label>
       <label>
-        Reply-to email <span className="hint">optional — only if it differs from the one you send from</span>
-        <input name="reply" type="email" autoComplete="email" placeholder="you@example.com" />
+        Reply-to email{" "}
+        <span className="hint">
+          optional — only if it differs from the one you send from
+        </span>
+        <input
+          name="reply"
+          type="email"
+          autoComplete="email"
+          placeholder="you@example.com"
+        />
       </label>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+          gap: 16,
+        }}
+      >
         <label>
           Topic
           <select name="topic" ref={topicRef} defaultValue="feedback">
@@ -68,10 +94,17 @@ export default function ContactForm({ email, products }: { email: string; produc
         Message
         <textarea name="message" required placeholder="What's on your mind?" />
       </label>
-      <button className="btn primary" type="submit" style={{ alignSelf: "flex-start" }}>
+      <button
+        className="btn primary"
+        type="submit"
+        style={{ alignSelf: "flex-start" }}
+      >
         Send message <ArrowRight />
       </button>
-      <span className="hint mono" style={{ fontSize: 12, color: "var(--muted)" }}>
+      <span
+        className="hint mono"
+        style={{ fontSize: 12, color: "var(--muted)" }}
+      >
         Opens your email app with everything filled in.
       </span>
     </form>

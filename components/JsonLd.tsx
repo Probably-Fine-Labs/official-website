@@ -7,7 +7,9 @@ export default function JsonLd({ data }: { data: object }) {
     <script
       type="application/ld+json"
       // Escape "<" so content can never close the script tag.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }
@@ -26,8 +28,16 @@ export const organizationLd = {
       logo: `${site.url}/apple-icon`,
       description: site.description,
       email: site.email,
-      founder: { "@type": "Person", name: site.founder, url: "https://imanandhu.in" },
-      address: { "@type": "PostalAddress", addressRegion: "Kerala", addressCountry: "IN" },
+      founder: {
+        "@type": "Person",
+        name: site.founder,
+        url: "https://imanandhu.in",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "Kerala",
+        addressCountry: "IN",
+      },
       sameAs: [site.youtube],
     },
     {
@@ -43,7 +53,9 @@ export const organizationLd = {
 };
 
 export function productLd(p: Product) {
-  const os = p.platforms.filter((x) => ["Windows", "Android", "Web"].includes(x)).join(", ");
+  const os = p.platforms
+    .filter((x) => ["Windows", "Android", "Web"].includes(x))
+    .join(", ");
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -52,7 +64,8 @@ export function productLd(p: Product) {
     url: `${site.url}/products/${p.slug}`,
     sameAs: [p.url, ...(p.source ? [p.source] : [])],
     image: `${site.url}${p.logo}`,
-    applicationCategory: p.slug === "webscanner" ? "SecurityApplication" : "UtilitiesApplication",
+    applicationCategory:
+      p.slug === "webscanner" ? "SecurityApplication" : "UtilitiesApplication",
     operatingSystem: os || undefined,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     publisher: { "@id": orgId },

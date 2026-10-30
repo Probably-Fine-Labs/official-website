@@ -4,7 +4,14 @@ import type { SVGProps } from "react";
 // sheet (public/brand/logo-white.svg). Uses currentColor so it follows the theme.
 export const ring = {
   viewBox: "0 0 200 200",
-  circle: { cx: 100, cy: 100, r: 74, strokeWidth: 20, dasharray: "418 47", rotate: -62 },
+  circle: {
+    cx: 100,
+    cy: 100,
+    r: 74,
+    strokeWidth: 20,
+    dasharray: "418 47",
+    rotate: -62,
+  },
 } as const;
 
 export default function LogoMark(props: SVGProps<SVGSVGElement>) {
