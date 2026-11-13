@@ -1,10 +1,10 @@
 import Link from "next/link";
 import LabDesk from "@/components/LabDesk";
-import ProductCard from "@/components/ProductCard";
+import ProductCard, { IdeaCard } from "@/components/ProductCard";
 import { CtaBand } from "@/components/SiteChrome";
 import { principles, products } from "@/lib/site";
 import { ArrowRight } from "@/components/Icons";
-import { Scribble } from "@/components/Desk";
+import { Redacted, Scribble } from "@/components/Desk";
 import LogoMark from "@/components/LogoMark";
 
 export default function Home() {
@@ -22,6 +22,8 @@ export default function Home() {
             {products.map((p) => (
               <ProductCard key={p.slug} p={p} />
             ))}
+            <Redacted still />
+            <IdeaCard />
           </div>
         </section>
 

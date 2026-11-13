@@ -104,11 +104,11 @@ async function ProductDetails({
           <>
             <a
               className="btn primary"
-              href={p.url}
+              href={p.cta?.href ?? p.url}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open {p.name} <ArrowUpRight />
+              {p.cta?.label ?? `Open ${p.name}`} <ArrowUpRight />
             </a>
             {p.links.map((l) => (
               <a

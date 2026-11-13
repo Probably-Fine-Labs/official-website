@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { AppTile, PageBoard, Redacted, Scribble } from "@/components/Desk";
 import JsonLd, { productListLd } from "@/components/JsonLd";
-import ProductCard from "@/components/ProductCard";
+import ProductCard, { IdeaCard } from "@/components/ProductCard";
 import { CtaBand } from "@/components/SiteChrome";
 import { pageMeta } from "@/lib/seo";
 import { products } from "@/lib/site";
@@ -41,13 +41,14 @@ export default function Products() {
       <section>
         <div className="head-row">
           <h2>Everything, in one place</h2>
-          <Scribble>the fourth one is a secret</Scribble>
+          <Scribble>one of these is a secret</Scribble>
         </div>
         <div className="grid3">
           {products.map((p) => (
             <ProductCard key={p.slug} p={p} />
           ))}
           <Redacted still />
+          <IdeaCard />
         </div>
       </section>
       <CtaBand />

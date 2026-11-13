@@ -21,6 +21,8 @@ export const site = {
     "SysInfo Pro",
     "FileDrop",
     "Web Scanner",
+    "CardTrack",
+    "credit card due date tracker",
     "Windows diagnostics",
     "file transfer without account",
     "subdomain finder",
@@ -40,6 +42,10 @@ export type Product = {
   summary: string;
   platforms: string[];
   status: string;
+  /** Pre-release products are listed but not counted as "shipped". */
+  stage?: "alpha" | "beta";
+  /** Main call to action when it isn't "Open <name>" (e.g. joining an alpha). */
+  cta?: { label: string; href: string };
   url: string;
   source?: string;
   highlights: string[];
@@ -61,16 +67,40 @@ export const products: Product[] = [
     source: "https://github.com/anandhuremanan/sysinfopro",
     highlights: ["Slowdown diagnosis", "Dev & network doctor", "MIT licensed"],
     features: [
-      { title: "Why so slow", body: "Ranks what is holding the PC back right now — a busy program, a Defender scan — and suggests what to try." },
-      { title: "Network doctor", body: "Checks adapter, router, DNS and internet in order, then names the link that failed." },
-      { title: "Dev doctor", body: "Shows which python, node or java runs when you type it, and why another copy wins." },
-      { title: "Dev caches", body: "Sizes package caches and old build folders, and frees the ones unused for months." },
-      { title: "Duplicates", body: "Finds files with identical contents and sends the extra copies to the Recycle Bin." },
-      { title: "Floating widget", body: "A tiny always-on-top window with CPU, memory, battery and free space." },
+      {
+        title: "Why so slow",
+        body: "Ranks what is holding the PC back right now — a busy program, a Defender scan — and suggests what to try.",
+      },
+      {
+        title: "Network doctor",
+        body: "Checks adapter, router, DNS and internet in order, then names the link that failed.",
+      },
+      {
+        title: "Dev doctor",
+        body: "Shows which python, node or java runs when you type it, and why another copy wins.",
+      },
+      {
+        title: "Dev caches",
+        body: "Sizes package caches and old build folders, and frees the ones unused for months.",
+      },
+      {
+        title: "Duplicates",
+        body: "Finds files with identical contents and sends the extra copies to the Recycle Bin.",
+      },
+      {
+        title: "Floating widget",
+        body: "A tiny always-on-top window with CPU, memory, battery and free space.",
+      },
     ],
     links: [
-      { label: "Microsoft Store", href: "https://apps.microsoft.com/detail/9pd2g09hcxk3?cid=DevShareMCLPCS" },
-      { label: "GitHub releases", href: "https://github.com/anandhuremanan/sysinfopro/releases/latest" },
+      {
+        label: "Microsoft Store",
+        href: "https://apps.microsoft.com/detail/9pd2g09hcxk3?cid=DevShareMCLPCS",
+      },
+      {
+        label: "GitHub releases",
+        href: "https://github.com/anandhuremanan/sysinfopro/releases/latest",
+      },
     ],
   },
   {
@@ -85,14 +115,32 @@ export const products: Product[] = [
     url: "https://filedrop.imanandhu.in",
     highlights: ["No sign-up", "Cross-platform", "Auto-delete"],
     features: [
-      { title: "No account", body: "Open it and send. There is nothing to sign up for." },
-      { title: "Six-digit code", body: "Pair any two devices with a short code instead of cables or logins." },
-      { title: "Auto-delete", body: "Files are removed once the transfer completes." },
-      { title: "Native apps", body: "Dedicated apps for Windows and Android, plus the web." },
+      {
+        title: "No account",
+        body: "Open it and send. There is nothing to sign up for.",
+      },
+      {
+        title: "Six-digit code",
+        body: "Pair any two devices with a short code instead of cables or logins.",
+      },
+      {
+        title: "Auto-delete",
+        body: "Files are removed once the transfer completes.",
+      },
+      {
+        title: "Native apps",
+        body: "Dedicated apps for Windows and Android, plus the web.",
+      },
     ],
     links: [
-      { label: "Microsoft Store", href: "https://apps.microsoft.com/detail/9p1wqhjj8hkc?cid=DevShareMCLPCS" },
-      { label: "Android APK", href: "https://music-files.imanandhu.in/filedropmobile/FileDrop-1.2.2.apk" },
+      {
+        label: "Microsoft Store",
+        href: "https://apps.microsoft.com/detail/9p1wqhjj8hkc?cid=DevShareMCLPCS",
+      },
+      {
+        label: "Android APK",
+        href: "https://music-files.imanandhu.in/filedropmobile/FileDrop-1.2.2.apk",
+      },
     ],
   },
   {
@@ -106,14 +154,83 @@ export const products: Product[] = [
     status: "open source",
     url: "https://webscanner.imanandhu.in",
     source: "https://github.com/anandhuremanan/Web-Scanner",
-    highlights: ["Passive / standard / full", "Source labeling", "MIT licensed"],
-    features: [
-      { title: "Passive scan", body: "Builds a map from certificate logs, web archives and DNS without touching the target." },
-      { title: "Standard scan", body: "Checks which subdomains are live and reads robots.txt and sitemaps." },
-      { title: "Full crawl", body: "Follows links on live hosts to find routes sitemaps don't list." },
-      { title: "Source labeling", body: "Every result shows how it was discovered." },
+    highlights: [
+      "Passive / standard / full",
+      "Source labeling",
+      "MIT licensed",
     ],
-    links: [{ label: "Source on GitHub", href: "https://github.com/anandhuremanan/Web-Scanner" }],
+    features: [
+      {
+        title: "Passive scan",
+        body: "Builds a map from certificate logs, web archives and DNS without touching the target.",
+      },
+      {
+        title: "Standard scan",
+        body: "Checks which subdomains are live and reads robots.txt and sitemaps.",
+      },
+      {
+        title: "Full crawl",
+        body: "Follows links on live hosts to find routes sitemaps don't list.",
+      },
+      {
+        title: "Source labeling",
+        body: "Every result shows how it was discovered.",
+      },
+    ],
+    links: [
+      {
+        label: "Source on GitHub",
+        href: "https://github.com/anandhuremanan/Web-Scanner",
+      },
+    ],
+  },
+  {
+    slug: "cardtrack",
+    name: "CardTrack",
+    logo: "/products/cardtrack.svg",
+    tagline: "Every card. Every due date.",
+    summary:
+      "One calm place for your credit cards. Reads your banks' alert emails, keeps balances and due dates current, and reminds you before you pay.",
+    platforms: ["Android"],
+    status: "early alpha",
+    stage: "alpha",
+    url: "https://cardtrack.pflabs.in",
+    cta: {
+      label: "Join the alpha",
+      href: "https://cardtrack.pflabs.in/#alpha",
+    },
+    highlights: [
+      "Due-date reminders",
+      "On-device & encrypted",
+      "Free during alpha",
+    ],
+    features: [
+      {
+        title: "Updates itself from Gmail",
+        body: "Read-only access, limited to your banks' card-alert emails. Emails are parsed on your phone.",
+      },
+      {
+        title: "Never miss a due date",
+        body: "Reminders for card bills, EMIs and subscription renewals.",
+      },
+      {
+        title: "Balances that make sense",
+        body: "Billing-cycle aware, with a yearly spend chart, per-card breakdowns and a searchable transaction list.",
+      },
+      {
+        title: "Private by design",
+        body: "No account, no servers. Data stays on your phone, encrypted with AES-256 and locked with an MPIN or fingerprint.",
+      },
+      {
+        title: "Never asks for bank logins",
+        body: "Only the last 4 digits of each card are stored. No ads, analytics or tracking.",
+      },
+      {
+        title: "Supported banks",
+        body: "YES BANK / Kiwi, ICICI, OneCard / BOB, Axis, BOBCARD and SBI Card, with more as their alerts are verified.",
+      },
+    ],
+    links: [{ label: "Product site", href: "https://cardtrack.pflabs.in" }],
   },
 ];
 
@@ -122,7 +239,10 @@ export type Person = {
   role: string;
   bio: string;
   location?: string;
-  links: { label: "Web" | "GitHub" | "LinkedIn" | "X" | "YouTube"; href: string }[];
+  links: {
+    label: "Web" | "GitHub" | "LinkedIn" | "X" | "YouTube";
+    href: string;
+  }[];
 };
 
 export const people: Person[] = [
@@ -134,14 +254,23 @@ export const people: Person[] = [
     links: [
       { label: "Web", href: "https://imanandhu.in" },
       { label: "GitHub", href: "https://github.com/anandhuremanan" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/anandhuremanan/" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/anandhuremanan/",
+      },
       { label: "X", href: "https://twitter.com/anandhu_or" },
     ],
   },
 ];
 
 export const principles = [
-  { title: "Respect your time", body: "Fast to open, quick to be useful, no dark patterns." },
+  {
+    title: "Respect your time",
+    body: "Fast to open, quick to be useful, no dark patterns.",
+  },
   { title: "Do one thing well", body: "Focused tools over feature soup." },
-  { title: "Privacy by default", body: "We collect only what a feature needs, nothing more." },
+  {
+    title: "Privacy by default",
+    body: "We collect only what a feature needs, nothing more.",
+  },
 ];

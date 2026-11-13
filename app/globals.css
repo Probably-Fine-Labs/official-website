@@ -1642,3 +1642,13 @@ a.channel:hover,
   .board-head .board-copy { padding: 28px 0 8px; }
   .board-head .board-copy::before { display: none; }
 }
+
+/* Pre-release badge on product cards */
+.tag-row { display: inline-flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.tag.stage { background: var(--ink); color: var(--bg); border-color: var(--ink); text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+
+/* "What should we build next?" card: a sticky note in the product grid */
+.card.idea-card { background: var(--paper); border-style: dashed; }
+.card.idea-card h3 { font-family: var(--font-hand), cursive; font-weight: 700; font-size: 30px; letter-spacing: 0; line-height: 1.05; }
+/* Redacted card stretches to its grid row like the product cards */
+.grid3 > .redacted:not(.artifact) { height: 100%; }

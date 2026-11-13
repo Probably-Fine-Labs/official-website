@@ -39,7 +39,8 @@ ${p.tagline} ${p.summary}
 - Page: ${abs(`/products/${p.slug}`)}
 - App: ${p.url}
 - Platforms: ${p.platforms.join(", ")}
-- Status: ${p.status}${p.source ? `\n- Source code: ${p.source}` : ""}
+- Status: ${p.status}${p.cta ? `
+- ${p.cta.label}: ${p.cta.href}` : ""}${p.source ? `\n- Source code: ${p.source}` : ""}
 ${p.links.map((l) => `- ${l.label}: ${l.href}`).join("\n")}
 
 ### Features

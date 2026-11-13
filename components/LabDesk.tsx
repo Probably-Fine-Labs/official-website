@@ -82,8 +82,13 @@ export default function LabDesk() {
       <div className="desk-stats">
         <span className="desk-hint">psst, things on this desk move</span>
         <span>
-          <b>{products.length}</b> products shipped
+          <b>{products.filter((p) => !p.stage).length}</b> products shipped
         </span>
+        {products.some((p) => p.stage) && (
+          <span>
+            <b>{products.filter((p) => p.stage).length}</b> in alpha
+          </span>
+        )}
         <span>
           <b>1</b> experiment brewing
         </span>
