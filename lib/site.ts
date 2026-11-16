@@ -21,7 +21,7 @@ export const site = {
     "SysInfo Pro",
     "FileDrop",
     "Web Scanner",
-    "CardTrack",
+    "CardEye",
     "credit card due date tracker",
     "Windows diagnostics",
     "file transfer without account",
@@ -185,19 +185,19 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "cardtrack",
-    name: "CardTrack",
-    logo: "/products/cardtrack.svg",
+    slug: "cardeye",
+    name: "CardEye",
+    logo: "/products/cardeye.svg",
     tagline: "Every card. Every due date.",
     summary:
       "One calm place for your credit cards. Reads your banks' alert emails, keeps balances and due dates current, and reminds you before you pay.",
     platforms: ["Android"],
     status: "early alpha",
     stage: "alpha",
-    url: "https://cardtrack.pflabs.in",
+    url: "https://cardeye.pflabs.in",
     cta: {
       label: "Join the alpha",
-      href: "https://cardtrack.pflabs.in/#alpha",
+      href: "https://cardeye.pflabs.in/#alpha",
     },
     highlights: [
       "Due-date reminders",
@@ -230,7 +230,7 @@ export const products: Product[] = [
         body: "YES BANK / Kiwi, ICICI, OneCard / BOB, Axis, BOBCARD and SBI Card, with more as their alerts are verified.",
       },
     ],
-    links: [{ label: "Product site", href: "https://cardtrack.pflabs.in" }],
+    links: [{ label: "Product site", href: "https://cardeye.pflabs.in" }],
   },
 ];
 
