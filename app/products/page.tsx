@@ -12,12 +12,14 @@ export const metadata: Metadata = pageMeta(
   "/products",
 );
 
-// App tiles scattered on the right of the header board.
-// Staggered up/down so no tile hides another's text.
+// App tiles on the right of the header board: a loose 2-column stack,
+// each column nudged up/down and tilted a little so it still feels scattered.
+// Fits up to 4 tiles without overlap; add a row here if the catalogue grows.
 const tiles = [
-  { right: "27%", top: "18%", r: -5 },
-  { right: "15%", bottom: "12%", r: 3 },
-  { right: "4%", top: "13%", r: -2 },
+  { right: "21%", top: "12%", r: -5 },
+  { right: "4%", top: "7%", r: 3 },
+  { right: "20%", top: "52%", r: 2 },
+  { right: "5%", top: "47%", r: -4 },
 ];
 
 export default function Products() {
