@@ -24,11 +24,13 @@ async function copy(text: string) {
 export default function AssetActions({
   file,
   name,
-  size,
+  width,
+  height,
 }: {
   file: string;
   name: string;
-  size: number;
+  width: number;
+  height: number;
 }) {
   const [done, setDone] = useState<"" | "link" | "embed">("");
   const url = () => new URL(file, window.location.origin).href;
@@ -48,7 +50,7 @@ export default function AssetActions({
       <button
         type="button"
         className="btn sm ghost"
-        onClick={run("embed", () => `<img src="${url()}" alt="${name}" width="${size}" height="${size}">`)}
+        onClick={run("embed", () => `<img src="${url()}" alt="${name}" width="${width}" height="${height}">`)}
       >
         {done === "embed" ? "Embed copied" : "Copy embed code"}
       </button>

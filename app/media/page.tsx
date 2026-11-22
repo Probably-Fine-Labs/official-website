@@ -1,52 +1,22 @@
 import type { Metadata } from "next";
-import { Note, PageBoard } from "@/components/Desk";
+import { PageBoard } from "@/components/Desk";
 import { pageMeta } from "@/lib/seo";
-import { products, site } from "@/lib/site";
+import { site } from "@/lib/site";
 import AssetActions from "./AssetActions";
 
 export const metadata: Metadata = pageMeta(
   "Media",
-  "Official Probably Fine Labs logos and product icons, as SVG: download them, or copy a link to embed.",
+  "The official Probably Fine Labs logo as SVG, in black and white: download it, or copy a link to embed it.",
   "/media",
 );
 
-type Asset = {
-  name: string;
-  file: string; // under /public
-  note: string;
-  tile: "light" | "dark"; // the preview background it is made for
-};
-
-// The lab's marks, then every product icon that exists as SVG.
-const brand: Asset[] = [
-  { name: "Ring mark, black", file: "/brand/logo-black.svg", note: "For light backgrounds.", tile: "light" },
-  { name: "Ring mark, white", file: "/brand/logo-white.svg", note: "For dark backgrounds.", tile: "dark" },
+// The logo: the ring and the name, its text drawn as outlines so it looks
+// the same without Inter installed. Made by scripts outside this repo from
+// assets/fonts/Inter-600.ttf, in the proportions of .logo in globals.css.
+const versions = [
+  { file: "/brand/probably-fine-labs-black.svg", label: "Black", use: "for light backgrounds" },
+  { file: "/brand/probably-fine-labs-white.svg", label: "White", use: "for dark backgrounds" },
 ];
-const icons: Asset[] = products
-  .filter((p) => p.logo.endsWith(".svg"))
-  .map((p) => ({ name: `${p.name} icon`, file: p.logo, note: p.tagline, tile: "light" }));
-
-function AssetCard({ a }: { a: Asset }) {
-  const fileName = a.file.split("/").pop();
-  return (
-    <div className="card asset">
-      <div className={`asset-tile ${a.tile}`}>
-        {/* The file itself, exactly as it downloads. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={a.file} alt={a.name} width={96} height={96} />
-      </div>
-      <div>
-        <h3>{a.name}</h3>
-        <p>{a.note}</p>
-      </div>
-      <AssetActions file={a.file} name={a.name} size={64} />
-      <div className="foot">
-        <span>{fileName}</span>
-        <strong>SVG</strong>
-      </div>
-    </div>
-  );
-}
 
 export default function Media() {
   return (
@@ -55,51 +25,46 @@ export default function Media() {
         label="media"
         title={
           <>
-            Our marks, <em>free to use.</em>
+            Our logo, <em>free to use.</em>
           </>
         }
-        lede={`Official ${site.name} logos and product icons as SVG. Download them, or copy a link to embed them as they are.`}
-      >
-        <Note at={{ right: "8%", top: "14%", r: 4 }} className="note-sm">
-          please keep
-          <br />
-          the gap
-        </Note>
-      </PageBoard>
+        lede={`The official ${site.name} logo as SVG. Download it, or copy a link to embed it as it is.`}
+      />
 
-      <section id="brand">
-        <div className="label mono">{"the lab"}</div>
-        <h2>The ring</h2>
-        <div className="grid3">
-          {brand.map((a) => (
-            <AssetCard key={a.file} a={a} />
-          ))}
-        </div>
+      <section className="media-logo" aria-label="The logo">
+        {/* The files themselves, exactly as they download: white on the dark theme, black on the light one. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="on-light" src={versions[0].file} alt={site.name} width={1057} height={164} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="on-dark" src={versions[1].file} alt={site.name} width={1057} height={164} />
       </section>
 
-      <section id="products">
-        <div className="label mono">{"products"}</div>
-        <h2>Product icons</h2>
-        <div className="grid3">
-          {icons.map((a) => (
-            <AssetCard key={a.file} a={a} />
-          ))}
-        </div>
+      <section className="media-versions">
+        {versions.map((v) => (
+          <div className="media-row" key={v.file}>
+            <div>
+              <b>{v.label}</b> <span className="muted">{v.use}</span>
+              <div className="media-file mono">{v.file.split("/").pop()}</div>
+            </div>
+            <AssetActions file={v.file} name={site.name} width={212} height={33} />
+          </div>
+        ))}
       </section>
 
       <section className="prose" style={{ maxWidth: 720 }}>
-        <div className="label mono">{"using them"}</div>
+        <div className="label mono">{"using it"}</div>
         <h2>A few kind requests</h2>
         <p>
-          Use the marks to link to us, write about us or show that something
-          works with our products. Keep them as they are: <b>black or white</b>,
-          the ring&apos;s gap at the top right, and some room around them. Please
-          don&apos;t use them to suggest we made or endorse something we
+          Use the logo to link to us, write about us or show that something
+          works with our products. Keep it as it is: <b>black or white</b>, the
+          ring&apos;s gap at the top right, and some room around it. Please
+          don&apos;t use it to suggest we made or endorse something we
           didn&apos;t.
         </p>
         <p>
-          Copied links point at the files on this site, so an embedded icon
-          always shows the current version. Questions? <a href={`mailto:${site.email}`}>{site.email}</a>.
+          Copied links point at the files on this site, so an embedded logo
+          always shows the current version. Questions?{" "}
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
       </section>
     </div>
