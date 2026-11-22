@@ -32,14 +32,6 @@ export default function Media() {
         lede={`The official ${site.name} logo as SVG. Download it, or copy a link to embed it as it is.`}
       />
 
-      <section className="media-logo" aria-label="The logo">
-        {/* The files themselves, exactly as they download: white on the dark theme, black on the light one. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="on-light" src={versions[0].file} alt={site.name} width={1057} height={164} />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="on-dark" src={versions[1].file} alt={site.name} width={1057} height={164} />
-      </section>
-
       <section className="media-versions">
         {versions.map((v) => (
           <div className="media-row" key={v.file}>

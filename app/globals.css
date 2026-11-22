@@ -1654,34 +1654,11 @@ a.channel:hover,
 .grid3 > .redacted:not(.artifact) { height: 100%; }
 
 /* ---------- Media page ---------- */
-section.media-logo {
-  padding: 64px 0 48px;
-  border-bottom: 1px solid var(--line);
-}
-.media-logo img {
-  display: block;
-  width: min(100%, 720px);
-  height: auto;
-}
-.media-logo .on-dark {
-  display: none;
-}
-:root[data-theme="dark"] .media-logo .on-dark {
-  display: block;
-}
-:root[data-theme="dark"] .media-logo .on-light {
-  display: none;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .media-logo .on-dark {
-    display: block;
-  }
-  :root:not([data-theme]) .media-logo .on-light {
-    display: none;
-  }
-}
 section.media-versions {
-  padding: 0 0 24px;
+  padding: 48px 0 24px;
+}
+.media-row:first-child {
+  border-top: 1px solid var(--line);
 }
 .media-row {
   display: flex;
