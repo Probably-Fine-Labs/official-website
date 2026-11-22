@@ -79,6 +79,7 @@ export function Footer() {
           <a href={site.status} target="_blank" rel="noopener noreferrer">
             Status
           </a>
+          <Link href="/media">Media</Link>
           <Link href="/privacy">Privacy</Link>
         </nav>
       </footer>

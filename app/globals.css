@@ -1652,3 +1652,38 @@ a.channel:hover,
 .card.idea-card h3 { font-family: var(--font-hand), cursive; font-weight: 700; font-size: 30px; letter-spacing: 0; line-height: 1.05; }
 /* Redacted card stretches to its grid row like the product cards */
 .grid3 > .redacted:not(.artifact) { height: 100%; }
+
+/* ---------- Media page ---------- */
+.asset .asset-tile {
+  height: 160px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+}
+.asset .asset-tile.light {
+  background: #ffffff;
+}
+.asset .asset-tile.dark {
+  background: #000000;
+}
+.asset .asset-tile img {
+  width: 96px;
+  height: 96px;
+}
+.asset-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
