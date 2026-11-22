@@ -6,7 +6,7 @@ import AssetActions from "./AssetActions";
 
 export const metadata: Metadata = pageMeta(
   "Media",
-  "The official Probably Fine Labs logo as SVG, in black and white: download it, or copy a link to embed it.",
+  "The official Probably Fine Labs logo as SVG, in black, white and gray: download it, or copy a link to embed it.",
   "/media",
 );
 
@@ -16,6 +16,7 @@ export const metadata: Metadata = pageMeta(
 const versions = [
   { file: "/brand/probably-fine-labs-black.svg", label: "Black", use: "for light backgrounds" },
   { file: "/brand/probably-fine-labs-white.svg", label: "White", use: "for dark backgrounds" },
+  { file: "/brand/probably-fine-labs-gray.svg", label: "Gray", use: "for either, where the logo should stay quiet" },
 ];
 
 export default function Media() {
@@ -56,7 +57,7 @@ export default function Media() {
         <h2>A few kind requests</h2>
         <p>
           Use the logo to link to us, write about us or show that something
-          works with our products. Keep it as it is: <b>black or white</b>, the
+          works with our products. Keep it as it is: <b>black, white or gray</b>, the
           ring&apos;s gap at the top right, and some room around it. Please
           don&apos;t use it to suggest we made or endorse something we
           didn&apos;t.
