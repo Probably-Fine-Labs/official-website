@@ -76,6 +76,9 @@ export function Footer() {
           <a href={site.github} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
+          <a href={site.status} target="_blank" rel="noopener noreferrer">
+            Status
+          </a>
           <Link href="/privacy">Privacy</Link>
         </nav>
       </footer>

@@ -12,6 +12,7 @@ export const site = {
   youtube: "https://www.youtube.com/@ProbablyFineLabs",
   // Open-source home for the lab's public code.
   github: "https://github.com/Probably-Fine-Labs",
+  status: "https://status.pflabs.in",
   location: "Kerala, India",
   founder: "Anandhu Remanan",
   buildTagline: "Human first, with help of AI.",
