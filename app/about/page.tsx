@@ -104,13 +104,13 @@ export default function About() {
         <div className="label mono">{"people"}</div>
         <div className="head-row">
           <h2>The humans behind it</h2>
-          <Scribble>currently a team of one. working on it</Scribble>
+          <Scribble>a team of two now. still room on the desk</Scribble>
         </div>
         <div className="people">
           {people.map((p) => (
             <article className="card person" key={p.name}>
               <div className="avatar">
-                <Avatar name={p.name} size={88} />
+                <Avatar name={p.name} size={88} look={p.look} />
               </div>
               <div>
                 <h3>{p.name}</h3>

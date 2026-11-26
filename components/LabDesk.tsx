@@ -84,10 +84,12 @@ export default function LabDesk() {
         <span>
           <b>{products.filter((p) => !p.stage).length}</b> products shipped
         </span>
-        {products.some((p) => p.stage) && (
-          <span>
-            <b>{products.filter((p) => p.stage).length}</b> in alpha
-          </span>
+        {[...new Set(products.map((p) => p.stage).filter(Boolean))].map(
+          (stage) => (
+            <span key={stage}>
+              <b>{products.filter((p) => p.stage === stage).length}</b> {stage}
+            </span>
+          ),
         )}
         <span>
           <b>1</b> experiment brewing

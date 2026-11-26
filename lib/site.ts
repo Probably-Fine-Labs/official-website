@@ -22,8 +22,8 @@ export const site = {
     "SysInfo Pro",
     "FileDrop",
     "Web Scanner",
-    "CardEye",
-    "credit card due date tracker",
+    "Jotr",
+    "quick notes for Windows",
     "Windows diagnostics",
     "file transfer without account",
     "subdomain finder",
@@ -44,7 +44,7 @@ export type Product = {
   platforms: string[];
   status: string;
   /** Pre-release products are listed but not counted as "shipped". */
-  stage?: "alpha" | "beta";
+  stage?: "alpha" | "beta" | "coming soon";
   /** Main call to action when it isn't "Open <name>" (e.g. joining an alpha). */
   cta?: { label: string; href: string };
   url: string;
@@ -186,57 +186,52 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "cardeye",
-    name: "CardEye",
-    logo: "/products/cardeye.svg",
-    tagline: "Every card. Every due date.",
+    slug: "jotr",
+    name: "Jotr",
+    logo: "/products/jotr.png",
+    tagline: "Catch it before it's gone.",
     summary:
-      "One calm place for your credit cards. Reads your banks' alert emails, keeps balances and due dates current, and reminds you before you pay.",
-    platforms: ["Android"],
-    status: "early alpha",
-    stage: "alpha",
-    url: "https://cardeye.pflabs.in",
-    cta: {
-      label: "Join the alpha",
-      href: "https://cardeye.pflabs.in/#alpha",
-    },
-    highlights: [
-      "Due-date reminders",
-      "On-device & encrypted",
-      "Free during alpha",
-    ],
+      "The tiny Windows notepad that pops up with one shortcut, takes your thought, and gets out of the way.",
+    platforms: ["Windows 10 & 11"],
+    status: "coming soon",
+    stage: "coming soon",
+    url: "https://jotr.pflabs.in",
+    cta: { label: "See Jotr", href: "https://jotr.pflabs.in" },
+    highlights: ["Alt + X to capture", "Tags & search", "Offline, no account"],
     features: [
       {
-        title: "Updates itself from Gmail",
-        body: "Read-only access, limited to your banks' card-alert emails. Emails are parsed on your phone.",
+        title: "One keystroke away",
+        body: "Press Alt + X anywhere and a small note window opens with the cursor ready. Ctrl + Enter saves it and it's gone.",
       },
       {
-        title: "Never miss a due date",
-        body: "Reminders for card bills, EMIs and subscription renewals.",
+        title: "Tags in every colour",
+        body: "Work, Personal, Ideas and more. Rename, recolour or add your own; deleting a tag never deletes its notes.",
       },
       {
-        title: "Balances that make sense",
-        body: "Billing-cycle aware, with a yearly spend chart, per-card breakdowns and a searchable transaction list.",
+        title: "A dashboard for later",
+        body: "Search everything, filter by tag, sort by newest or last edited, and pin the notes that matter.",
       },
       {
-        title: "Private by design",
-        body: "No account, no servers. Data stays on your phone, encrypted with AES-256 and locked with an MPIN or fingerprint.",
+        title: "Never loses a draft",
+        body: "Closing a window with text in it asks whether to save, discard or keep the draft.",
       },
       {
-        title: "Never asks for bank logins",
-        body: "Only the last 4 digits of each card are stored. No ads, analytics or tracking.",
+        title: "Rich text, images & export",
+        body: "Headings, lists and pasted screenshots. Export any note as PDF, Word or Markdown.",
       },
       {
-        title: "Supported banks",
-        body: "YES BANK / Kiwi, ICICI, OneCard / BOB, Axis, BOBCARD and SBI Card, with more as their alerts are verified.",
+        title: "Yours, offline",
+        body: "No account, no sign-in, no cloud. Notes live on your own drive, with backups built in.",
       },
     ],
-    links: [{ label: "Product site", href: "https://cardeye.pflabs.in" }],
+    links: [],
   },
 ];
 
 export type Person = {
   name: string;
+  /** Optional portrait features; anything left out is picked from the name. */
+  look?: import("@/components/Avatar").AvatarLook;
   role: string;
   bio: string;
   location?: string;
@@ -261,6 +256,14 @@ export const people: Person[] = [
       },
       { label: "X", href: "https://twitter.com/anandhu_or" },
     ],
+  },
+  {
+    name: "Akshai Jayaraj",
+    look: { hair: "ShortMessy" },
+    role: "Founding Engineer · Electronics & Software",
+    bio: "Works where circuits meet code: designs the hardware and writes the software that runs on it. Built Jotr.",
+    location: "Kerala, India",
+    links: [{ label: "GitHub", href: "https://github.com/dev-akshai-jayaraj" }],
   },
 ];
 

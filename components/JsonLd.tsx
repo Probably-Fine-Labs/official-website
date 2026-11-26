@@ -54,7 +54,7 @@ export const organizationLd = {
 
 export function productLd(p: Product) {
   const os = p.platforms
-    .filter((x) => ["Windows", "Android", "Web"].includes(x))
+    .filter((x) => ["Windows", "Android", "Web"].some((os) => x.startsWith(os)))
     .join(", ");
   return {
     "@context": "https://schema.org",

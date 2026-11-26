@@ -80,12 +80,23 @@ function hash(str: string) {
 // "use cache": react-peeps calls Math.random() internally (for SVG ids), which
 // Cache Components won't allow in a prerender. Caching renders the portrait once
 // and reuses it — it only depends on the name anyway.
+// Features a person can pin instead of the name-based pick (see Person.look).
+export type AvatarLook = {
+  body?: BustPoseType;
+  face?: FaceType;
+  hair?: HairType;
+  facialHair?: FacialHairType;
+  accessory?: AccessoryType;
+};
+
 export default async function Avatar({
   name,
   size = 96,
+  look = {},
 }: {
   name: string;
   size?: number;
+  look?: AvatarLook;
 }) {
   "use cache";
   const h = hash(name);
@@ -101,11 +112,11 @@ export default async function Avatar({
     >
       <Peep
         style={{ width: "100%", height: "100%" }}
-        body={pick(bodies, 0)}
-        face={pick(faces, 4)}
-        hair={pick(hairs, 8)}
-        facialHair={pick(facialHairs, 14)}
-        accessory={pick(accessories, 19)}
+        body={look.body ?? pick(bodies, 0)}
+        face={look.face ?? pick(faces, 4)}
+        hair={look.hair ?? pick(hairs, 8)}
+        facialHair={look.facialHair ?? pick(facialHairs, 14)}
+        accessory={look.accessory ?? pick(accessories, 19)}
         strokeColor="#0a0a0a"
         backgroundColor="#efede8"
         // head and shoulders
